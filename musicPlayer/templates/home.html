@@ -81,15 +81,19 @@
     {% endfor %}
   </table>
 </div>
-<script type="text/javascript" src="{{ url_for('static', filename='js/diskPage.js') }}"></script>
-
-
 <script>
-  set_ListOfMusics(JSON.parse('{{ musicJ | tojson | safe }}'));
-  $(document).ready(function () {
+  document.addEventListener("DOMContentLoaded", function() {
+    set_ListOfMusics({{ musicJ | tojson | safe }});
     startMusic();
   });
 </script>
+
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/diskPage.js') }}"></script>
+
+
+
 
 {% endblock %}
 
@@ -100,7 +104,7 @@
   <div>
     <p>{{ m.filename }}</p>
     <audio controls>
-      <source src="{{ m.fileURL }}" type="audio/mp3">
+      <source src="{{ m.fileUrl }}" type="audio/mp3">
       Seu navegador não suporta o player de áudio.
     </audio>
   </div>
