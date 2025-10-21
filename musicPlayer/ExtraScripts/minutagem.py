@@ -7,3 +7,4 @@ def sec2minString(sec):
     else:
         seci = str(seci)
     return mi[0] + ":" + seci
+
