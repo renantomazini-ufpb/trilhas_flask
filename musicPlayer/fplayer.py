@@ -16,7 +16,7 @@ def sounds():                                       # função que trata requisi
 
 @app.route("/")                                                     # define a rota raiz do site (página inicial)
 def home():                                                         # função que renderiza a página inicial
-    musiclist = glob.glob("musicPlayer 0.1/static/musics/*.mp3")        # busca todos os arquivos .mp3 dentro de musicPlayer/static/musics/ e retorna uma lista de caminhos completos
+    musiclist = glob.glob("musicPlayer/static/musics/*.mp3")        # busca todos os arquivos .mp3 dentro de musicPlayer/static/musics/ e retorna uma lista de caminhos completos
     musicJ = [                                                      # inicia uma lista por compreensão que conterá dicionários com informações de cada música
         {'filename': mi.split("/")[-1],                             # extrai apenas o nome do arquivo do caminho completo separando por '/' e pegando a última parte
          "fileURL": url_for('sounds', music=mi.split('/')[-1])}     # gera a URL para a rota 'sounds', passando o nome do arquivo como parâmetro 'music'
